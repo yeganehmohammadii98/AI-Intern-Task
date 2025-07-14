@@ -1,0 +1,77 @@
+Test_Case_ID,Title,Steps,Expected_Result,Full_Text
+TC1,Logged-in user completes checkout with valid credit card,"1. Navigate to product page and add an in-stock item to the cart
+2. Proceed to checkout
+3. Confirm shipping address and choose standard delivery
+4. Select “Credit Card” as payment method
+5. Enter valid credit card details (e.g., Visa ending in 4242)
+6. Submit order",Order is successfully placed. Confirmation page is displayed with order number and summary. Confirmation email is triggered. Payment transaction is logged in backend.,"Title: Logged-in user completes checkout with valid credit card
+Steps: 1. Navigate to product page and add an in-stock item to the cart
+2. Proceed to checkout
+3. Confirm shipping address and choose standard delivery
+4. Select “Credit Card” as payment method
+5. Enter valid credit card details (e.g., Visa ending in 4242)
+6. Submit order
+Expected Result: Order is successfully placed. Confirmation page is displayed with order number and summary. Confirmation email is triggered. Payment transaction is logged in backend."
+TC2,Server returns 500 error during final checkout submission,"1. Add product to cart and proceed to checkout
+2. Fill in valid shipping and payment details
+3. Submit order (API returns HTTP 500 at this step)","Frontend displays generic error message: 'Something went wrong, please try again'. No charge is made to the card. No order is created in the system. Option to retry is presented.","Title: Server returns 500 error during final checkout submission
+Steps: 1. Add product to cart and proceed to checkout
+2. Fill in valid shipping and payment details
+3. Submit order (API returns HTTP 500 at this step)
+Expected Result: Frontend displays generic error message: 'Something went wrong, please try again'. No charge is made to the card. No order is created in the system. Option to retry is presented."
+TC3,Guest user completes order without creating an account,"1. Add product to cart
+2. Choose 'Checkout as Guest'
+3. Enter shipping and payment details
+4. Submit order",Order confirmation page is displayed. Guest receives confirmation email. No user account is created.,"Title: Guest user completes order without creating an account
+Steps: 1. Add product to cart
+2. Choose 'Checkout as Guest'
+3. Enter shipping and payment details
+4. Submit order
+Expected Result: Order confirmation page is displayed. Guest receives confirmation email. No user account is created."
+TC4,Reject invalid credit card entry,"1. Add item to cart and proceed to checkout
+2. Enter a clearly invalid credit card number (e.g., 0000 0000 0000 0000)
+3. Attempt to submit order",User sees an inline validation error. Cannot proceed until valid card is entered.,"Title: Reject invalid credit card entry
+Steps: 1. Add item to cart and proceed to checkout
+2. Enter a clearly invalid credit card number (e.g., 0000 0000 0000 0000)
+3. Attempt to submit order
+Expected Result: User sees an inline validation error. Cannot proceed until valid card is entered."
+TC5,Handle inventory mismatch during order submission,"1. Add a low-stock item (only 1 left) to cart
+2. Another user purchases the item in the meantime
+3. Attempt to complete checkout",Error message 'Item no longer available' is displayed. User is returned to cart to revise order. No payment is processed.,"Title: Handle inventory mismatch during order submission
+Steps: 1. Add a low-stock item (only 1 left) to cart
+2. Another user purchases the item in the meantime
+3. Attempt to complete checkout
+Expected Result: Error message 'Item no longer available' is displayed. User is returned to cart to revise order. No payment is processed."
+TC6,Expired promo code rejected at checkout,"1. Add product to cart
+2. Enter expired promo code (e.g., SALE2020)
+3. Click 'Apply'",Message: 'Discount code expired'. No discount applied.,"Title: Expired promo code rejected at checkout
+Steps: 1. Add product to cart
+2. Enter expired promo code (e.g., SALE2020)
+3. Click 'Apply'
+Expected Result: Message: 'Discount code expired'. No discount applied."
+TC7,User exits checkout before entering payment,"1. Add item to cart
+2. Begin checkout
+3. Navigate away before reaching payment",No order placed. Cart remains unchanged.,"Title: User exits checkout before entering payment
+Steps: 1. Add item to cart
+2. Begin checkout
+3. Navigate away before reaching payment
+Expected Result: No order placed. Cart remains unchanged."
+TC8,Valid discount code applies correctly,"1. Add item to cart
+2. Apply valid discount code",Discount applied to total.,"Title: Valid discount code applies correctly
+Steps: 1. Add item to cart
+2. Apply valid discount code
+Expected Result: Discount applied to total."
+TC9,Successful PayPal checkout,"1. Add item to cart
+2. Select PayPal and authenticate
+3. Return and confirm order",Order placed via PayPal.,"Title: Successful PayPal checkout
+Steps: 1. Add item to cart
+2. Select PayPal and authenticate
+3. Return and confirm order
+Expected Result: Order placed via PayPal."
+TC10,Form validation prevents checkout with missing address,"1. Start checkout
+2. Leave required address fields empty
+3. Try to proceed",User is prompted to complete form.,"Title: Form validation prevents checkout with missing address
+Steps: 1. Start checkout
+2. Leave required address fields empty
+3. Try to proceed
+Expected Result: User is prompted to complete form."

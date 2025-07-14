@@ -1,0 +1,4 @@
+prompt
+Write test cases for checking out with a saved credit card as a logged-in user.
+Generate test cases for scenarios involving invalid payment methods during checkout.
+"Create test cases for handling server/API errors during checkout (e.g., 500 Internal Server Error on order submission, timeout during payment gateway call). Include edge case logic and how the frontend should respond. Format as Title, Steps, Expected Result, with detailed technical coverage."
