@@ -19,6 +19,3 @@ GPT-2 for Generation: We use the gpt2 model to create text.
 
 Contextual Generation: To ensure the new test cases are relevant and well-formatted, we provide GPT-2 with:
 
-The user's original prompt.
-
-The relevant test cases we retrieved earlier. This helps the model learn the desired style and format, acting as a "few-shot learning" mechanism.
